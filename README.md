@@ -1,10 +1,21 @@
-# 4300project
+# ETL Pipeline to Process Student Grades
+
+## Function
+
+This project creates an ETL pipeline using AWS compute and storage services to process student grades. It is composed of an front-end UI, where the user can access student grades, as well as input new ones. The students' overall grades get updated as new additions are made to the databse through the UI. The main goals of the project are to implement a pipeline with real-time input and visibility into studnet grades, automated back-end processing with minimal infrastructure, and having a clean, user-friendyl front-end for both grading and viewing. 
+
+## Pipeline Overview
+
+- String/integer input from user in UI --> stored as JSON in S3 bucket
+- S3 upload triggers Lambda to calculate grade (based on points scored and type of assignment) --> stored in RDS
+- Second Lambda triggered to calculate course average --> stored in S3 as CSV
+- Display data in table format in UI (Streamlit dashboard)
 
 ## Files
 
 ### `app.py`
 
-This is our main file and has ll our code for running both the input and output end of our project. You can run it locally typing `streamlit run app.py` in terminal. 
+This is our main file and has our code for running both the input and output end of our project. You can run it locally typing `streamlit run app.py` in terminal. 
 
 ### `src/s3_uploader.py`
 
